@@ -1,0 +1,39 @@
+<div class="product-option-row">
+    <div class="product-option-label" @click="option.visible = !option.visible" >
+        ${option.name} <span>${ selected[i] }</span>
+    </div>
+    <div class="product-option-list" v-if="option.visible">
+        <div v-for="(optionValue, j) in option.values" :key="j">
+            <div class="product-option-item" 
+            @click="
+            selected[i] = optionValue;
+            option.visible = !option.visible;
+            form.selections[i] = optionValue;
+            ">
+                ${optionValue}
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+{% comment %} 
+
+<select name="id" id="productSelect">
+    {% for variant in product.variants %}
+      {% if variant.available %}
+        <option value="{{ variant.id }}">
+          {{ variant.title }} - {{ variant.price | money_with_currency }}
+        </option>
+      {% else %}
+        <option disabled="disabled">
+          {{ variant.title }} - sold out
+        </option>
+      {% endif %}
+    {% endfor %}
+  </select>
+  <label for="Quantity">quantity</label>
+  <input
+    type="number" id="Quantity" name="quantity" value="1" min="1"> {% endcomment %}

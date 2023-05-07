@@ -1,0 +1,87 @@
+<div class="hero-image section main" style="background-image: url({{ section.settings.image | img_url: 'master' }})">
+  {% comment %} <img src="{{ section.settings.image | img_url: 'master' }}"> {% endcomment %}
+  <p class="main_title_texte" data-text="Spécialiste de la rénovation et du neuf">
+    <span class="word1">
+      <strong>Spécialiste de la rénovation</strong>
+    </span>
+    <span class="word2">et du neuf</span>
+  </p>
+</div>
+
+{% schema %}
+  {
+    "name": "Hero Image",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Spécialiste de la rénovation"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero Image",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}
+
+{% style %}
+
+  .main {
+    /* background-image: url('[data-text]'); */
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 53px);
+    height: -o-calc(100vh - 53px); /* opera */
+    height: -webkit-calc(100vh - 53px); /* google, safari */
+    height: -moz-calc(100vh - 53px); /* firefox */
+    background-size: cover;
+    /* background-position-x: -8px; */
+    background-position-x: center;
+    background-position-y: center;
+  }
+
+  .main_title_texte {
+    color: black;
+    display: block;
+    align-self: center;
+    margin: auto;
+    /* overflow: hidden; */
+    width: 0;
+    white-space: nowrap;
+    font-weight: 500;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: x-large;
+    background-color: rgba(255, 255, 255, 0.836);
+    text-align: center;
+    border-radius: 2px;
+    animation-name: movetextetitle;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
+
+  @media only screen and (max-width: 992px) {
+    .main_title_texte {
+      display: flex;
+      flex-wrap: wrap;
+      font-size: medium;
+      justify-content: center;
+    }
+
+    @keyframes movetextetitle {
+
+      from {
+        width: 0;
+      }
+      to {
+        width: 250px;
+      }
+    }
+
+  }
+{% endstyle %}
