@@ -44,10 +44,121 @@ table {
 	border-spacing: 0;
 }
 
+button {
+    margin:0;
+    padding:0;
+    background-color:transparent;
+    border : none;
+    appearance:none;
+    box-shadow: none;
+    font: inherit;
+    outline: none;
+}
+
+@font-face {
+    font-family: NunitoSans ;
+    src: url('{{"Nunito/NunitoSans-ExtraBold.ttf" | asset_url}}') format('truetype');
+    font-weight: bolder;
+    font-style: normal;
+}
+/* @font-face {
+    font-family: NunitoSans ;
+    src: url('{{"Nunito/NunitoSans-Bold.ttf" | asset_url}}') format('truetype');
+    font-weight:bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: NunitoSans ;
+    src: url('{{"Nunito/NunitoSans-Regular.ttf" | asset_url}}') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: NunitoSans ;
+    src: url('{{"Nunito/NunitoSans-Light.ttf" | asset_url}}') format('truetype');
+    font-weight: 300;
+    font-style:normal;
+}
+@font-face {
+    font-family: NunitoSans ;
+    src: url('{{"Nunito/NunitoSans-ExtraLight.ttf" | asset_url}}') format('truetype');
+    font-weight:200;
+    font-style: normal;
+} */
+
+
+@mixin phone {
+    @media (max-width : 599px){
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width : 599px){
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (max-width : 599px){
+        @content;
+    }
+}
+
+/* Start presets*/
+.container,.footer,.header{
+    padding: 0 25px;
+}
+
+body{
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.25;
+    font-family: "NunitoSans", Helvetica, Arial, sans-serif;
+}
+
+.flex {
+    display : flex;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.half{
+    width : 50%;
+}
+
 /* Start product page */
 
 .product-template {
-    /* padding-top : 24px;
+    padding-top : 24px;
     display: grid;
-    grid-template-columns: calc((100% - 25px) / 2 calc((100% - 25px) / 2)); */
+    grid-template-columns: calc((100% - 25px) / 2) calc((100% - 25px) / 2); 
+}
+
+.product-description-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-description{
+    width: 50%;
+    margin-bottom: 30px;
+}
+
+.product-title{
+    margin-bottom: 100px;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.product-option-row{
+    position: relative;
+    user-select : none;
 }
